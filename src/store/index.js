@@ -1,35 +1,29 @@
 import { createStore } from "vuex"
-import destinationsDataService from "../services/destinationsDataService"
 
 const store = createStore({
 	state() {
 		return {
-			destinations: [],
+			posts: [],
 		}
 	},
 
 	actions: {
-		fetchDestinations({ commit }) {
-			destinationsDataService.getAllDestinations().then((response) => {
-				console.log(response)
-				const types = response.data.map((destination) => destination.type)
-				const uniqueTypes = [...new Set(types)]
-				console.log(uniqueTypes)
-				commit("SET_DESTINATIONS", response.data)
-			}).catch((e) => {
-				console.log(e)
-			})
+		async fetchPosts({ commit }) {
+			const response = await fetch("https://jsonplaceholder.typicode.com/posts")
+			const data = await response.json()
+			console.log(data)
+			commit("SET_POSTS", data)
 		},
 	},
 
 	mutations: {
-		SET_DESTINATIONS(state, destinations) {
-			state.destinations = destinations
+		SET_POSTS(state, posts) {
+			state.posts = posts
 		},
 	},
 
 	getters: {
-		loadDestinations: (state) => state.destinations,
+		loadPosts: (state) => state.posts,
 	},
 })
 

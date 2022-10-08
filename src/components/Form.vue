@@ -9,7 +9,7 @@ const handleChosen = (item) => {
 	console.log(item)
 }
 
-const destinationList = computed(() => store.getters["loadDestinations"])
+const destinationList = computed(() => store.getters["loadPosts"])
 </script>
 
 <template>

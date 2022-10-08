@@ -7,7 +7,7 @@ import Form from "./components/Form.vue"
 const store = useStore()
 
 onMounted(() => {
-	store.dispatch("fetchDestinations")
+	store.dispatch("fetchPosts")
 })
 </script>
 
