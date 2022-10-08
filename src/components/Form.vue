@@ -9,7 +9,7 @@ const handleChosen = (item) => {
 	console.log(item)
 }
 
-const destinationList = computed(() => store.getters["loadPosts"])
+const postList = computed(() => store.getters["loadPosts"])
 </script>
 
 <template>
@@ -17,7 +17,7 @@ const destinationList = computed(() => store.getters["loadPosts"])
 		<div class="sm:max-w-sm flex-1 h-24 rounded-md shadow-lg bg-white">
 			<div class="px-6 py-4 h-full">
 				<Autocomplete
-					:data-list="destinationList"
+					:data-list="postList"
 					@chosen="handleChosen($event)"
 				/>
 			</div>

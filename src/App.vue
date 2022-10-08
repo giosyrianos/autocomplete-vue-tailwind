@@ -13,7 +13,7 @@ onMounted(() => {
 
 <template>
 	<div
-		class="font-ubuntu text-grey-500 grid grid-cols-2 justify-center align-center h-full"
+		class="font-ubuntu text-grey-500 lg:grid lg:grid-cols-[30%_1fr] md:flex md:flex-col justify-center align-center h-full"
 	>
 		<header>
 			<div class="wrapper">

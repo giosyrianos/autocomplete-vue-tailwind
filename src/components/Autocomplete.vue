@@ -52,14 +52,13 @@ const onInput = (e) => {
 }
 
 const filterItems = () => {
-	console.log("filteredList")
 	filteredList.value = props.dataList.filter((item) => {
-		return item.name.toLowerCase().startsWith(searchTerm.value.toLowerCase())
+		return item.title.toLowerCase().startsWith(searchTerm.value.toLowerCase())
 	})
 }
 const handleChosen = (item) => {
 	selectedItem.value = item
-	searchTerm.value = item.name
+	searchTerm.value = item.title
 	showOptions.value = false
 	emit("chosen", item)
 }
@@ -103,7 +102,7 @@ const vClickOutside = {
 			class="input-container w-full flex focus:border-dark-blue-500 border rounded-md p-3"
 		>
 			<span class="flex items-center mr-3">
-				<img src="../assets/icons/icon-bed.svg" alt="" />
+				📕
 			</span>
 
 			<input
@@ -121,7 +120,7 @@ const vClickOutside = {
 				class="flex items-center cursor-pointer"
 				@click="reset()"
 			>
-				<img src="../assets/icons/x_icon.svg" alt="" />
+				<img src="@/assets/icons/x_icon.svg" alt="" />
 			</span>
 		</div>
 		<Transition name="slide" mode="in-out">
@@ -139,7 +138,7 @@ const vClickOutside = {
 						@click="handleChosen(item)"
 						class="cursor-pointer flex no-wrap hover:bg-gray-100 py-3 px-6"
 					>
-						<span class="place" v-if="item.type === 'country'">
+						<!-- <span class="place" v-if="item.type === 'country'">
 							<img src="../assets/icons/icon-country.svg" />
 						</span>
 						<span class="place" v-if="item.type === 'destination'">
@@ -147,8 +146,8 @@ const vClickOutside = {
 						</span>
 						<span class="place" v-if="item.type === 'city'">
 							<img src="../assets/icons/icon-city.svg" />
-						</span>
-						<span class="px-3 text-blue-dark-500">{{ item.name }}</span>
+						</span> -->
+						<span class="px-3 text-blue-dark-500 capitalize">{{ item.title }}</span>
 					</li>
 				</ul>
 				<div v-else class="text-gray-400 w-full text-center">

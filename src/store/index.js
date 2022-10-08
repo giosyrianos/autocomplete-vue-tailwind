@@ -11,7 +11,6 @@ const store = createStore({
 		async fetchPosts({ commit }) {
 			const response = await fetch("https://jsonplaceholder.typicode.com/posts")
 			const data = await response.json()
-			console.log(data)
 			commit("SET_POSTS", data)
 		},
 	},
